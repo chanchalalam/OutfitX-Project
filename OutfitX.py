@@ -2,7 +2,6 @@ import warnings
 warnings.filterwarnings("ignore", category=UserWarning, module="streamlit")
 
 import streamlit as st
-from streamlit_sortables import sort_items
 import datetime
 import random
 import os
