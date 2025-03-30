@@ -7,4 +7,3 @@ pillow
 scipy
 webcolors
 PyQt5
-cv2
