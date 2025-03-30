@@ -1,0 +1,9 @@
+###### Requirements without Version Specifiers ######`
+tensorflow
+opencv-python
+matplotlib
+numpy
+pillow
+scipy
+webcolors
+PyQt5
