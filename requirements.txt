@@ -7,3 +7,4 @@ pillow
 scipy
 webcolors
 PyQt5
+PyQt6
