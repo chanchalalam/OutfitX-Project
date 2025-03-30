@@ -1,0 +1,4 @@
+model[[:space:]]details/models/model_sub/variables/variables.data-00000-of-00001 filter=lfs diff=lfs merge=lfs -text
+model[[:space:]]details/models/model_bottom/variables/variables.data-00000-of-00001 filter=lfs diff=lfs merge=lfs -text
+model[[:space:]]details/models/model_top/variables/variables.data-00000-of-00001 filter=lfs diff=lfs merge=lfs -text
+model[[:space:]]details/models/model_shoes/variables/variables.data-00000-of-00001 filter=lfs diff=lfs merge=lfs -text
