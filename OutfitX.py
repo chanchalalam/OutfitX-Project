@@ -14,7 +14,6 @@ import numpy as np
 import cv2
 from tensorflow.keras.preprocessing import image
 
- all output possibilities of the model for subsequent matching
 sub_list = ["bottom","foot","top"]
 top_list = [['Belts', 'Blazers', 'Dresses', 'Dupatta', 'Jackets', 'Kurtas',
        'Kurtis', 'Lehenga Choli', 'Nehru Jackets', 'Rain Jacket',
