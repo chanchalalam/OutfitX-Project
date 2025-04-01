@@ -12,6 +12,8 @@ import hashlib
 import base64
 import numpy as np
 import cv2
+from tensorflow.keras.preprocessing import image
+
 
 def single_classification(single_path):
     
