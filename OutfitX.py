@@ -6,7 +6,7 @@ import datetime
 import random
 import os
 from PIL import Image
-# from recognition_module import single_classification
+from recognition_module import single_classification
 import uuid
 import hashlib
 import base64
