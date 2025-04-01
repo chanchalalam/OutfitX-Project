@@ -16,7 +16,7 @@ from tensorflow.keras.preprocessing import image
 
 
 # Load pre-trained models
-sub_model = tf.keras.models.load_model("model details/models/model_sub")  
+sub_model = tf.keras.models.load_model("model details/models/model_sub/saved_model.pb")  
 top_model = tf.keras.models.load_model("model details/models/model_top")  
 bottom_model = tf.keras.models.load_model("model details/models/model_bottom")  
 foot_model = tf.keras.models.load_model("model details/models/model_foot")  
