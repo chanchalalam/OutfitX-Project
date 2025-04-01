@@ -35,11 +35,11 @@ from webcolors import (
 # Get the absolute path to the project root directory
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # Moves up one level from "py"
 
-# Define model paths
-sub_model = tf.keras.models.load_model('/Users/chanchalalam/Desktop/Outfit_Recommendation_System-master/models/model_sub')
-top_model = tf.keras.models.load_model('/Users/chanchalalam/Desktop/Outfit_Recommendation_System-master/models/model_top')
-bottom_model = tf.keras.models.load_model('/Users/chanchalalam/Desktop/Outfit_Recommendation_System-master/models/model_bottom')
-foot_model = tf.keras.models.load_model('/Users/chanchalalam/Desktop/Outfit_Recommendation_System-master/models/model_shoes')
+sub_model = Path("model details") / "models" / "model_sub"
+top_model = Path("model details") / "models" / "model_top"
+bottom_model = Path("model details") / "models" / "model_bottom"
+foot_model = Path("model details") / "models" / "model_foot"
+
 
 # # Load pre-trained models
 # sub_model = tf.keras.models.load_model(sub_model_path)
