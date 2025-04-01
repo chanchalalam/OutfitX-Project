@@ -14,9 +14,14 @@ import numpy as np
 import cv2
 from tensorflow.keras.preprocessing import image
 
+from pathlib import Path
+import tensorflow as tf
 
-# Load pre-trained models
-sub_model = tf.keras.models.load_model("model details/models/model_sub/saved_model.pb")  
+sub_model_path = Path("model details") / "models" / "model_sub"
+sub_model = tf.keras.models.load_model(sub_model_path)
+
+# # Load pre-trained models
+# sub_model = tf.keras.models.load_model("model details/models/model_sub/saved_model.pb")  
 top_model = tf.keras.models.load_model("model details/models/model_top")  
 bottom_model = tf.keras.models.load_model("model details/models/model_bottom")  
 foot_model = tf.keras.models.load_model("model details/models/model_foot")  
