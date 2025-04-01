@@ -1,9 +1,9 @@
 ###### Requirements without Version Specifiers ######`
-tensorflow==2.15.1
-opencv-python-headless==4.11.0.86
-matplotlib==3.8.4
-numpy==1.24.4
-pillow==10.1.0
-scipy==1.15.1
+tensorflow
+opencv-python-headless
+matplotlib
+numpy
+pillow
+scipy
 webcolors==1.11.1
 PyQt5
