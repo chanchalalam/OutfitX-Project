@@ -19,12 +19,9 @@ import tensorflow as tf
 
 
 sub_model = Path("model details") / "models" / "model_sub"
-
-# # Load pre-trained models
-# sub_model = tf.keras.models.load_model("model details/models/model_sub/saved_model.pb")  
-top_model = tf.keras.models.load_model("model details/models/model_top")  
-bottom_model = tf.keras.models.load_model("model details/models/model_bottom")  
-foot_model = tf.keras.models.load_model("model details/models/model_foot")  
+top_model = Path("model details") / "models" / "model_top"
+bottom_model = Path("model details") / "models" / "model_bottom"
+foot_model = Path("model details") / "models" / "model_foot"
 
 
 sub_list = ["bottom","foot","top"]
