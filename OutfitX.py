@@ -16,10 +16,11 @@ from tensorflow.keras.preprocessing import image
 
 
 # Load pre-trained models
-sub_model = tf.keras.models.load_model("models/model_sub")  
-top_model = tf.keras.models.load_model("models/model_top")  
-bottom_model = tf.keras.models.load_model("models/model_bottom")  
-foot_model = tf.keras.models.load_model("models/model_foot")  
+sub_model = tf.keras.models.load_model("model details/models/model_sub")  
+top_model = tf.keras.models.load_model("model details/models/model_top")  
+bottom_model = tf.keras.models.load_model("model details/models/model_bottom")  
+foot_model = tf.keras.models.load_model("model details/models/model_foot")  
+
 
 sub_list = ["bottom","foot","top"]
 top_list = [['Belts', 'Blazers', 'Dresses', 'Dupatta', 'Jackets', 'Kurtas',
