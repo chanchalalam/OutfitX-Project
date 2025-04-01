@@ -17,8 +17,8 @@ from tensorflow.keras.preprocessing import image
 from pathlib import Path
 import tensorflow as tf
 
-sub_model_path = Path("model details") / "models" / "model_sub"
-sub_model = tf.keras.models.load_model(sub_model_path)
+
+sub_model = Path("model details") / "models" / "model_sub"
 
 # # Load pre-trained models
 # sub_model = tf.keras.models.load_model("model details/models/model_sub/saved_model.pb")  
