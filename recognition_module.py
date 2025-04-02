@@ -44,17 +44,23 @@ import numpy as np
 # Get the absolute path to the project root directory
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # Moves up one level from "py"
 
-sub_model_path = Path("model details") / "models" / "model_sub"
-top_model_path = Path("model details") / "models" / "model_top"
-bottom_model_path = Path("model details") / "models" / "model_bottom"
-foot_model_path = Path("model details") / "models" / "model_foot"
+# sub_model_path = Path("model details") / "models" / "model_sub"
+# top_model_path = Path("model details") / "models" / "model_top"
+# bottom_model_path = Path("model details") / "models" / "model_bottom"
+# foot_model_path = Path("model details") / "models" / "model_foot"
 
 
-# # Load pre-trained models
-sub_model = tf.keras.models.load_model(sub_model_path)
-top_model = tf.keras.models.load_model(top_model_path)
-bottom_model = tf.keras.models.load_model(bottom_model_path)
-foot_model = tf.keras.models.load_model(foot_model_path)
+# # # Load pre-trained models
+# sub_model = tf.keras.models.load_model(sub_model_path)
+# top_model = tf.keras.models.load_model(top_model_path)
+# bottom_model = tf.keras.models.load_model(bottom_model_path)
+# foot_model = tf.keras.models.load_model(foot_model_path)
+
+sub_model = Path("model details") / "models" / "model_sub"
+top_model = Path("model details") / "models" / "model_top"
+bottom_model = Path("model details") / "models" / "model_bottom"
+foot_model = Path("model details") / "models" / "model_foot"
+
 
 
 # # Load pre-trained models
@@ -196,17 +202,6 @@ def single_helper(train_images, my_model, lelist):
 
 def single_classification(single_path):
     
-    """
-    This function take a single path of a photo, then do reshape to fit the models, and do classification
-    Input is a path of a certain photo
-    Output is a tuple which contains subtype(for being send to a correct sub-model), 
-                                     info(a string having all info of a clothes), 
-                                     res(a list having all info of a clothes)
-    """
-    
-    # Our model only applies to dataframes. 
-    # Therefore, in order to enable the model to predict a single picture, 
-    # we turn this picture into a dataframe with only one row.
     train_images = np.zeros((1,80,60,3))
   
     path = single_path#/content/images   
