@@ -37,21 +37,20 @@ import tensorflow as tf
 from keras.layers import TFSMLayer
 import os
 
-# Get base directory
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+# Get the absolute path to the project root directory
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # Moves up one level from "py"
 
-# Define model paths
-sub_model_path = os.path.join(BASE_DIR, "models", "model_sub")
-top_model_path = os.path.join(BASE_DIR, "models", "model_top")
-bottom_model_path = os.path.join(BASE_DIR, "models", "model_bottom")
-foot_model_path = os.path.join(BASE_DIR, "models", "model_shoes")
+sub_model_path = Path("model details") / "models" / "model_sub"
+top_model_path = Path("model details") / "models" / "model_top"
+bottom_model_path = Path("model details") / "models" / "model_bottom"
+foot_model_path = Path("model details") / "models" / "model_foot"
 
-# Load models using TFSMLayer
-sub_model = TFSMLayer(sub_model_path, call_endpoint='serving_default')
-top_model = TFSMLayer(top_model_path, call_endpoint='serving_default')
-bottom_model = TFSMLayer(bottom_model_path, call_endpoint='serving_default')
-foot_model = TFSMLayer(foot_model_path, call_endpoint='serving_default')
 
+# # Load pre-trained models
+sub_model = tf.keras.models.load_model(sub_model_path)
+top_model = tf.keras.models.load_model(top_model_path)
+bottom_model = tf.keras.models.load_model(bottom_model_path)
+foot_model = tf.keras.models.load_model(foot_model_path)
 
 
 # # Load pre-trained models
