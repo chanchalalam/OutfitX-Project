@@ -6,7 +6,7 @@ import datetime
 import random
 import os
 from PIL import Image
-# from recognition_module import single_classification
+from recognition_module import single_classification
 import uuid
 import hashlib
 import base64
@@ -16,111 +16,6 @@ from tensorflow.keras.preprocessing import image
 
 from pathlib import Path
 import tensorflow as tf
-import os 
-
-#for modeling
-from tensorflow.keras.preprocessing import image
-from tensorflow.keras.preprocessing.image import ImageDataGenerator 
-from tensorflow.keras.preprocessing import image
-
-
-#for read and show images
-import matplotlib.pyplot as plt
-import cv2                                                          
-import matplotlib.image as mpimg
-
-
-#for save and load models
-import tensorflow as tf
-from tensorflow import keras                                        
-from pathlib import Path
-
-
-
-import numpy as np
-
-#for color classification
-import colorsys                                                     
-import PIL.Image as Image
-
-# Get the absolute path to the project root directory
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) 
-
-# Define model paths
-sub_model = tf.keras.models.load_model('/mount/src/outfitx-project/model details/models/model_sub')
-top_model = tf.keras.models.load_model('/mount/src/outfitx-project/model details/models/model_top')
-bottom_model = tf.keras.models.load_model('/mount/src/outfitx-project/model details/models/model_bottom')
-foot_model = tf.keras.models.load_model('/mount/src/outfitx-project/model details/models/model_shoes')
-
-sub_list = ["bottom","foot","top"]
-top_list = [['Belts', 'Blazers', 'Dresses', 'Dupatta', 'Jackets', 'Kurtas',
-       'Kurtis', 'Lehenga Choli', 'Nehru Jackets', 'Rain Jacket',
-       'Rompers', 'Shirts', 'Shrug', 'Suspenders', 'Sweaters',
-       'Sweatshirts', 'Tops', 'Tshirts', 'Tunics', 'Waistcoat'],
-           ['Boys', 'Girls', 'Men', 'Unisex', 'Women'],
-           ['Black', 'Blue', 'Dark Blue', 'Dark Green', 'Dark Yellow', 'Green',
-       'Grey', 'Light Blue', 'Multi', 'Orange', 'Pink', 'Purple', 'Red',
-       'White', 'Yellow'],
-           ['Fall', 'Spring', 'Summer', 'Winter'],
-           ['Casual', 'Ethnic', 'Formal', 'Party', 'Smart Casual', 'Sports',
-       'Travel']]
-bottom_list = [['Capris', 'Churidar', 'Jeans', 'Jeggings', 'Leggings', 'Patiala',
-       'Salwar', 'Salwar and Dupatta', 'Shorts', 'Skirts', 'Stockings',
-       'Swimwear', 'Tights', 'Track Pants', 'Tracksuits', 'Trousers'],
-              ['Boys', 'Girls', 'Men', 'Unisex', 'Women'],
-              ['Black', 'Blue', 'Dark Blue', 'Dark Green', 'Dark Yellow', 'Grey',
-       'Light Blue', 'Multi', 'Orange', 'Pink', 'Purple', 'Red', 'White',
-       'Yellow'],
-              ['Fall', 'Spring', 'Summer', 'Winter'],
-              ['Casual', 'Ethnic', 'Formal', 'Smart Casual', 'Sports']]
-foot_list = [['Casual Shoes', 'Flats', 'Flip Flops', 'Formal Shoes', 'Heels',
-       'Sandals', 'Sports Sandals', 'Sports Shoes'],
-            ['Boys', 'Girls', 'Men', 'Unisex', 'Women'],
-            ['Black', 'Blue', 'Dark Blue', 'Dark Green', 'Dark Orange',
-       'Dark Yellow', 'Grey', 'Light Blue', 'Multi', 'Orange', 'Pink',
-       'Purple', 'Red', 'White', 'Yellow'],
-            ['Fall', 'Spring', 'Summer', 'Winter'],
-            ['Casual', 'Ethnic', 'Formal', 'Party', 'Smart Casual', 'Sports']]
-
-
-def single_classification(single_path):
-    
-    """
-    This function take a single path of a photo, then do reshape to fit the models, and do classification
-    Input is a path of a certain photo
-    Output is a tuple which contains subtype(for being send to a correct sub-model), 
-                                     info(a string having all info of a clothes), 
-                                     res(a list having all info of a clothes)
-    """
-    
-    # Our model only applies to dataframes. 
-    # Therefore, in order to enable the model to predict a single picture, 
-    # we turn this picture into a dataframe with only one row.
-    train_images = np.zeros((1,80,60,3))
-  
-    path = single_path#/content/images   
-    img = cv2.imread(path)
-    
-    #reshape img to apply the model
-    if img.shape != (80,60,3):
-        img = image.load_img(path, target_size=(80,60,3))
-
-    train_images[0] = img
-
-    
-    result2 = sub_list[np.argmax(sub_model.predict(train_images))]
-    
-    # According to the results of the first model, branch to three other models
-    if result2=="top":
-        res = single_helper(train_images,top_model,top_list)
-    elif result2=="bottom":
-        res = single_helper(train_images,bottom_model,bottom_list)
-    elif result2=="foot":
-        res = single_helper(train_images,foot_model,foot_list)
-    res.append(single_path)
-    res_str = f"{res[0]}, {res[1]}, {color_classification(single_path)}, {res[3]}, {res[4]}, {single_path}" 
-    
-    return (result2,res_str,res)
 
 # Helper Functions
 # --------------------------
