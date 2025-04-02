@@ -31,15 +31,24 @@ from webcolors import (
     hex_to_rgb
 )
    
-    
-# Get the absolute path to the project root directory
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # Moves up one level from "py"
+import os
+import tensorflow as tf
 
-# Define model paths
-sub_model = tf.keras.models.load_model('/Users/chanchalalam/Desktop/Outfit_Recommendation_System-master/models/model_sub')
-top_model = tf.keras.models.load_model('/Users/chanchalalam/Desktop/Outfit_Recommendation_System-master/models/model_top')
-bottom_model = tf.keras.models.load_model('/Users/chanchalalam/Desktop/Outfit_Recommendation_System-master/models/model_bottom')
-foot_model = tf.keras.models.load_model('/Users/chanchalalam/Desktop/Outfit_Recommendation_System-master/models/model_shoes')
+# Get the base directory (where your script is running)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Define model directory paths
+sub_model_path = os.path.join(BASE_DIR, "models", "model_sub")
+top_model_path = os.path.join(BASE_DIR, "models", "model_top")
+bottom_model_path = os.path.join(BASE_DIR, "models", "model_bottom")
+foot_model_path = os.path.join(BASE_DIR, "models", "model_shoes")
+
+# Load models (SavedModel format)
+sub_model = tf.keras.models.load_model(sub_model_path)
+top_model = tf.keras.models.load_model(top_model_path)
+bottom_model = tf.keras.models.load_model(bottom_model_path)
+foot_model = tf.keras.models.load_model(foot_model_path)
+
 
 # # Load pre-trained models
 # sub_model = tf.keras.models.load_model(sub_model_path)
