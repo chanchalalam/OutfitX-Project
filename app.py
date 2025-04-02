@@ -10,6 +10,32 @@ from PIL import Image
 import uuid
 import hashlib
 import base64
+import os 
+
+#for modeling
+from tensorflow.keras.preprocessing import image
+from tensorflow.keras.preprocessing.image import ImageDataGenerator 
+from tensorflow.keras.preprocessing import image
+
+
+#for read and show images
+import matplotlib.pyplot as plt
+import cv2                                                          
+import matplotlib.image as mpimg
+
+
+#for save and load models
+import tensorflow as tf
+from tensorflow import keras                                        
+
+
+
+
+import numpy as np
+
+#for color classification
+import colorsys                                                     
+import PIL.Image as Image
 
 from pathlib import Path
 
