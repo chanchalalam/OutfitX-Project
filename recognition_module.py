@@ -35,21 +35,17 @@ from webcolors import (
 # Get the absolute path to the project root directory
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # Moves up one level from "py"
 
-sub_model = Path("model details") / "models" / "model_sub"
-top_model = Path("model details") / "models" / "model_top"
-bottom_model = Path("model details") / "models" / "model_bottom"
-foot_model = Path("model details") / "models" / "model_foot"
+sub_model_path = Path("model details") / "models" / "model_sub"
+top_model_path = Path("model details") / "models" / "model_top"
+bottom_model_path = Path("model details") / "models" / "model_bottom"
+foot_model_path = Path("model details") / "models" / "model_foot"
 
-sub_model = tf.keras.models.load_model(str(sub_model))
-top_model = tf.keras.models.load_model(str(top_model))
-bottom_model = tf.keras.models.load_model(str(bottom_model))
-foot_model = tf.keras.models.load_model(str(foot_model))
 
 # # Load pre-trained models
-# sub_model = tf.keras.models.load_model(sub_model_path)
-# top_model = tf.keras.models.load_model(top_model_path)
-# bottom_model = tf.keras.models.load_model(bottom_model_path)
-# foot_model = tf.keras.models.load_model(foot_model_path)
+sub_model = tf.keras.models.load_model(sub_model_path)
+top_model = tf.keras.models.load_model(top_model_path)
+bottom_model = tf.keras.models.load_model(bottom_model_path)
+foot_model = tf.keras.models.load_model(foot_model_path)
 
 
 # all output possibilities of the model for subsequent matching
