@@ -44,6 +44,35 @@ import colorsys
 import PIL.Image as Image
 
 
+sub_list = ["bottom","foot","top"]
+top_list = [['Belts', 'Blazers', 'Dresses', 'Dupatta', 'Jackets', 'Kurtas',
+       'Kurtis', 'Lehenga Choli', 'Nehru Jackets', 'Rain Jacket',
+       'Rompers', 'Shirts', 'Shrug', 'Suspenders', 'Sweaters',
+       'Sweatshirts', 'Tops', 'Tshirts', 'Tunics', 'Waistcoat'],
+           ['Boys', 'Girls', 'Men', 'Unisex', 'Women'],
+           ['Black', 'Blue', 'Dark Blue', 'Dark Green', 'Dark Yellow', 'Green',
+       'Grey', 'Light Blue', 'Multi', 'Orange', 'Pink', 'Purple', 'Red',
+       'White', 'Yellow'],
+           ['Fall', 'Spring', 'Summer', 'Winter'],
+           ['Casual', 'Ethnic', 'Formal', 'Party', 'Smart Casual', 'Sports',
+       'Travel']]
+bottom_list = [['Capris', 'Churidar', 'Jeans', 'Jeggings', 'Leggings', 'Patiala',
+       'Salwar', 'Salwar and Dupatta', 'Shorts', 'Skirts', 'Stockings',
+       'Swimwear', 'Tights', 'Track Pants', 'Tracksuits', 'Trousers'],
+              ['Boys', 'Girls', 'Men', 'Unisex', 'Women'],
+              ['Black', 'Blue', 'Dark Blue', 'Dark Green', 'Dark Yellow', 'Grey',
+       'Light Blue', 'Multi', 'Orange', 'Pink', 'Purple', 'Red', 'White',
+       'Yellow'],
+              ['Fall', 'Spring', 'Summer', 'Winter'],
+              ['Casual', 'Ethnic', 'Formal', 'Smart Casual', 'Sports']]
+foot_list = [['Casual Shoes', 'Flats', 'Flip Flops', 'Formal Shoes', 'Heels',
+       'Sandals', 'Sports Sandals', 'Sports Shoes'],
+            ['Boys', 'Girls', 'Men', 'Unisex', 'Women'],
+            ['Black', 'Blue', 'Dark Blue', 'Dark Green', 'Dark Orange',
+       'Dark Yellow', 'Grey', 'Light Blue', 'Multi', 'Orange', 'Pink',
+       'Purple', 'Red', 'White', 'Yellow'],
+            ['Fall', 'Spring', 'Summer', 'Winter'],
+            ['Casual', 'Ethnic', 'Formal', 'Party', 'Smart Casual', 'Sports']]
 
 
 def single_classification(single_path):
