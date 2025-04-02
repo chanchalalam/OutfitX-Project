@@ -43,6 +43,14 @@ import numpy as np
 import colorsys                                                     
 import PIL.Image as Image
 
+# Get the absolute path to the project root directory
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) 
+
+# Define model paths
+sub_model = tf.keras.models.load_model('/Users/chanchalalam/Desktop/Outfit_Recommendation_System-master/models/model_sub')
+top_model = tf.keras.models.load_model('/Users/chanchalalam/Desktop/Outfit_Recommendation_System-master/models/model_top')
+bottom_model = tf.keras.models.load_model('/Users/chanchalalam/Desktop/Outfit_Recommendation_System-master/models/model_bottom')
+foot_model = tf.keras.models.load_model('/Users/chanchalalam/Desktop/Outfit_Recommendation_System-master/models/model_shoes')
 
 sub_list = ["bottom","foot","top"]
 top_list = [['Belts', 'Blazers', 'Dresses', 'Dupatta', 'Jackets', 'Kurtas',
