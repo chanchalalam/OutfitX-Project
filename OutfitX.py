@@ -47,10 +47,10 @@ import PIL.Image as Image
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) 
 
 # Define model paths
-sub_model = tf.keras.models.load_model('/Users/chanchalalam/Desktop/Outfit_Recommendation_System-master/models/model_sub')
-top_model = tf.keras.models.load_model('/Users/chanchalalam/Desktop/Outfit_Recommendation_System-master/models/model_top')
-bottom_model = tf.keras.models.load_model('/Users/chanchalalam/Desktop/Outfit_Recommendation_System-master/models/model_bottom')
-foot_model = tf.keras.models.load_model('/Users/chanchalalam/Desktop/Outfit_Recommendation_System-master/models/model_shoes')
+sub_model = tf.keras.models.load_model('/mount/src/outfitx-project/model details/models/model_sub')
+top_model = tf.keras.models.load_model('/mount/src/outfitx-project/model details/models/model_top')
+bottom_model = tf.keras.models.load_model('/mount/src/outfitx-project/model details/models/model_bottom')
+foot_model = tf.keras.models.load_model('/mount/src/outfitx-project/model details/models/model_shoes')
 
 sub_list = ["bottom","foot","top"]
 top_list = [['Belts', 'Blazers', 'Dresses', 'Dupatta', 'Jackets', 'Kurtas',
