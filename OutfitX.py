@@ -16,8 +16,74 @@ from tensorflow.keras.preprocessing import image
 
 from pathlib import Path
 import tensorflow as tf
+import os 
+
+#for modeling
+from tensorflow.keras.preprocessing import image
+from tensorflow.keras.preprocessing.image import ImageDataGenerator 
+from tensorflow.keras.preprocessing import image
 
 
+#for read and show images
+import matplotlib.pyplot as plt
+import cv2                                                          
+import matplotlib.image as mpimg
+
+
+#for save and load models
+import tensorflow as tf
+from tensorflow import keras                                        
+from pathlib import Path
+
+
+
+import numpy as np
+
+#for color classification
+import colorsys                                                     
+import PIL.Image as Image
+
+
+
+
+def single_classification(single_path):
+    
+    """
+    This function take a single path of a photo, then do reshape to fit the models, and do classification
+    Input is a path of a certain photo
+    Output is a tuple which contains subtype(for being send to a correct sub-model), 
+                                     info(a string having all info of a clothes), 
+                                     res(a list having all info of a clothes)
+    """
+    
+    # Our model only applies to dataframes. 
+    # Therefore, in order to enable the model to predict a single picture, 
+    # we turn this picture into a dataframe with only one row.
+    train_images = np.zeros((1,80,60,3))
+  
+    path = single_path#/content/images   
+    img = cv2.imread(path)
+    
+    #reshape img to apply the model
+    if img.shape != (80,60,3):
+        img = image.load_img(path, target_size=(80,60,3))
+
+    train_images[0] = img
+
+    
+    result2 = sub_list[np.argmax(sub_model.predict(train_images))]
+    
+    # According to the results of the first model, branch to three other models
+    if result2=="top":
+        res = single_helper(train_images,top_model,top_list)
+    elif result2=="bottom":
+        res = single_helper(train_images,bottom_model,bottom_list)
+    elif result2=="foot":
+        res = single_helper(train_images,foot_model,foot_list)
+    res.append(single_path)
+    res_str = f"{res[0]}, {res[1]}, {color_classification(single_path)}, {res[3]}, {res[4]}, {single_path}" 
+    
+    return (result2,res_str,res)
 
 # Helper Functions
 # --------------------------
