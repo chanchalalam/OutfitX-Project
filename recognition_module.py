@@ -182,44 +182,70 @@ def single_helper(train_images, my_model, lelist):
     return result
 
 
-def single_classification(single_path):
+# Load the model only once (to avoid reloading it every time the function is called)
+MODEL_PATH = "fashion_model.h5"
+model = tf.keras.models.load_model(MODEL_PATH)
+
+def single_classification(image_path):
+    """Classifies a clothing image and returns the predicted category."""
+    try:
+        # Load and preprocess image
+        img = image.load_img(image_path, target_size=(224, 224))  # Adjust size based on your model
+        img_array = image.img_to_array(img)
+        img_array = np.expand_dims(img_array, axis=0) / 255.0  # Normalize
+
+        # Make prediction
+        prediction = model.predict(img_array)
+
+        # Process prediction (modify this based on your model's output)
+        predicted_class = np.argmax(prediction, axis=1)[0]  # Get class index
+        categories = ["top", "bottom", "foot"]  # Modify based on your dataset
+        category = categories[predicted_class] if predicted_class < len(categories) else "unknown"
+
+        return category, f"Predicted: {category}", ["", "", "", "summer", "casual"]
+
+    except Exception as e:
+        return "error", f"Error: {str(e)}", []
+
+
+# def single_classification(single_path):
     
-    """
-    This function take a single path of a photo, then do reshape to fit the models, and do classification
-    Input is a path of a certain photo
-    Output is a tuple which contains subtype(for being send to a correct sub-model), 
-                                     info(a string having all info of a clothes), 
-                                     res(a list having all info of a clothes)
-    """
+#     """
+#     This function take a single path of a photo, then do reshape to fit the models, and do classification
+#     Input is a path of a certain photo
+#     Output is a tuple which contains subtype(for being send to a correct sub-model), 
+#                                      info(a string having all info of a clothes), 
+#                                      res(a list having all info of a clothes)
+#     """
     
-    # Our model only applies to dataframes. 
-    # Therefore, in order to enable the model to predict a single picture, 
-    # we turn this picture into a dataframe with only one row.
-    train_images = np.zeros((1,80,60,3))
+#     # Our model only applies to dataframes. 
+#     # Therefore, in order to enable the model to predict a single picture, 
+#     # we turn this picture into a dataframe with only one row.
+#     train_images = np.zeros((1,80,60,3))
   
-    path = single_path#/content/images   
-    img = cv2.imread(path)
+#     path = single_path#/content/images   
+#     img = cv2.imread(path)
     
-    #reshape img to apply the model
-    if img.shape != (80,60,3):
-        img = image.load_img(path, target_size=(80,60,3))
+#     #reshape img to apply the model
+#     if img.shape != (80,60,3):
+#         img = image.load_img(path, target_size=(80,60,3))
 
-    train_images[0] = img
+#     train_images[0] = img
 
     
-    result2 = sub_list[np.argmax(sub_model.predict(train_images))]
+#     result2 = sub_list[np.argmax(sub_model.predict(train_images))]
     
-    # According to the results of the first model, branch to three other models
-    if result2=="top":
-        res = single_helper(train_images,top_model,top_list)
-    elif result2=="bottom":
-        res = single_helper(train_images,bottom_model,bottom_list)
-    elif result2=="foot":
-        res = single_helper(train_images,foot_model,foot_list)
-    res.append(single_path)
-    res_str = f"{res[0]}, {res[1]}, {color_classification(single_path)}, {res[3]}, {res[4]}, {single_path}" 
+#     # According to the results of the first model, branch to three other models
+#     if result2=="top":
+#         res = single_helper(train_images,top_model,top_list)
+#     elif result2=="bottom":
+#         res = single_helper(train_images,bottom_model,bottom_list)
+#     elif result2=="foot":
+#         res = single_helper(train_images,foot_model,foot_list)
+#     res.append(single_path)
+#     res_str = f"{res[0]}, {res[1]}, {color_classification(single_path)}, {res[3]}, {res[4]}, {single_path}" 
     
-    return (result2,res_str,res)
+#     return (result2,res_str,res)
 
 
 
