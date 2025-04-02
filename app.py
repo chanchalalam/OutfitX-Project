@@ -43,10 +43,16 @@ import numpy as np
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-sub_model = Path("model details") / "models" / "model_sub"
-top_model = Path("model details") / "models" / "model_top"
-bottom_model = Path("model details") / "models" / "model_bottom"
-foot_model = Path("model details") / "models" / "model_foot"
+# sub_model = Path("model details") / "models" / "model_sub"
+# top_model = Path("model details") / "models" / "model_top"
+# bottom_model = Path("model details") / "models" / "model_bottom"
+# foot_model = Path("model details") / "models" / "model_foot"
+
+sub_model = tf.keras.models.load_model(str(Path("model details") / "models" / "model_sub"))
+top_model = tf.keras.models.load_model(str(Path("model details") / "models" / "model_top"))
+bottom_model = tf.keras.models.load_model(str(Path("model details") / "models" / "model_bottom"))
+foot_model = tf.keras.models.load_model(str(Path("model details") / "models" / "model_foot"))
+
 
 
 sub_list = ["bottom","foot","top"]
