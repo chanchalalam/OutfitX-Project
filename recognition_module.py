@@ -182,31 +182,6 @@ def single_helper(train_images, my_model, lelist):
     return result
 
 
-# Load the model only once (to avoid reloading it every time the function is called)
-MODEL_PATH = "fashion_model.h5"
-model = tf.keras.models.load_model(MODEL_PATH)
-
-def single_classification(image_path):
-    """Classifies a clothing image and returns the predicted category."""
-    try:
-        # Load and preprocess image
-        img = image.load_img(image_path, target_size=(224, 224))  # Adjust size based on your model
-        img_array = image.img_to_array(img)
-        img_array = np.expand_dims(img_array, axis=0) / 255.0  # Normalize
-
-        # Make prediction
-        prediction = model.predict(img_array)
-
-        # Process prediction (modify this based on your model's output)
-        predicted_class = np.argmax(prediction, axis=1)[0]  # Get class index
-        categories = ["top", "bottom", "foot"]  # Modify based on your dataset
-        category = categories[predicted_class] if predicted_class < len(categories) else "unknown"
-
-        return category, f"Predicted: {category}", ["", "", "", "summer", "casual"]
-
-    except Exception as e:
-        return "error", f"Error: {str(e)}", []
-
 
 # def single_classification(single_path):
     
@@ -248,6 +223,41 @@ def single_classification(image_path):
 #     return (result2,res_str,res)
 
 
+# Load the model once when the module is imported
+MODEL_PATH = "fashion_model.h5"
+
+try:
+    model = tf.keras.models.load_model(MODEL_PATH)  # ✅ Correctly load the model
+except Exception as e:
+    print(f"Error loading model: {e}")
+    model = None  # Handle case where model doesn't load
+
+def single_classification(image_path):
+    """Classifies a clothing image and returns the predicted category."""
+    if model is None:
+        return "error", "Model not loaded", []
+
+    try:
+        # ✅ Ensure image_path is a string, not a PosixPath
+        image_path = str(image_path)  
+
+        # ✅ Load and preprocess the image
+        img = image.load_img(image_path, target_size=(224, 224))  # Adjust size based on model
+        img_array = image.img_to_array(img)
+        img_array = np.expand_dims(img_array, axis=0) / 255.0  # Normalize
+
+        # ✅ Make prediction
+        prediction = model.predict(img_array)
+
+        # ✅ Process prediction (Modify based on your labels)
+        categories = ["top", "bottom", "foot"]  # Update this with your actual category names
+        predicted_class = np.argmax(prediction, axis=1)[0]  # Get class index
+        category = categories[predicted_class] if predicted_class < len(categories) else "unknown"
+
+        return category, f"Predicted: {category}", ["", "", "", "summer", "casual"]
+
+    except Exception as e:
+        return "error", f"Error processing image: {str(e)}", []
 
 
 def find_combo_by_top(top_color_group, combotype):
