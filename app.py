@@ -53,16 +53,12 @@ import numpy as np
 # bottom_model = tf.keras.models.load_model(str(Path("model details") / "models" / "model_bottom"))
 # foot_model = tf.keras.models.load_model(str(Path("model details") / "models" / "model_foot"))
 
-from pathlib import Path
+# Load the models correctly
+sub_model = tf.keras.models.load_model(BASE_DIR / "model details" / "models" / "model_sub")
+top_model = tf.keras.models.load_model(BASE_DIR / "model details" / "models" / "model_top")
+bottom_model = tf.keras.models.load_model(BASE_DIR / "model details" / "models" / "model_bottom")
+foot_model = tf.keras.models.load_model(BASE_DIR / "model details" / "models" / "model_foot")
 
-# Get the base directory of the script
-BASE_DIR = Path(__file__).resolve().parent
-
-# Define model paths using absolute paths
-sub_model = BASE_DIR / "model details" / "models" / "model_sub"
-top_model = BASE_DIR / "model details" / "models" / "model_top"
-bottom_model = BASE_DIR / "model details" / "models" / "model_bottom"
-foot_model = BASE_DIR / "model details" / "models" / "model_foot"
 
 sub_list = ["bottom","foot","top"]
 top_list = [['Belts', 'Blazers', 'Dresses', 'Dupatta', 'Jackets', 'Kurtas',
