@@ -54,10 +54,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # foot_model = tf.keras.models.load_model(str(Path("model details") / "models" / "model_foot"))
 
 # Load the models correctly
-sub_model = tf.keras.models.load_model(BASE_DIR / "model details" / "models" / "model_sub")
-top_model = tf.keras.models.load_model(BASE_DIR / "model details" / "models" / "model_top")
-bottom_model = tf.keras.models.load_model(BASE_DIR / "model details" / "models" / "model_bottom")
-foot_model = tf.keras.models.load_model(BASE_DIR / "model details" / "models" / "model_foot")
+sub_model = tf.keras.models.load_model( "model details" / "models" / "model_sub")
+top_model = tf.keras.models.load_model( "model details" / "models" / "model_top")
+bottom_model = tf.keras.models.load_model("model details" / "models" / "model_bottom")
+foot_model = tf.keras.models.load_model( "model details" / "models" / "model_foot")
 
 
 sub_list = ["bottom","foot","top"]
