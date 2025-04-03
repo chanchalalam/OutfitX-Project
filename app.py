@@ -41,7 +41,7 @@ from pathlib import Path
 
 import numpy as np
 
-# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # sub_model = Path("model details") / "models" / "model_sub"
 # top_model = Path("model details") / "models" / "model_top"
