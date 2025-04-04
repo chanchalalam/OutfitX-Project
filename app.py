@@ -41,7 +41,7 @@ from pathlib import Path
 
 import numpy as np
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # sub_model = Path("model details") / "models" / "model_sub"
 # top_model = Path("model details") / "models" / "model_top"
@@ -53,11 +53,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # bottom_model = tf.keras.models.load_model(str(Path("model details") / "models" / "model_bottom"))
 # foot_model = tf.keras.models.load_model(str(Path("model details") / "models" / "model_foot"))
 
-# Load the models correctly
-sub_model = tf.keras.models.load_model( "model details" / "models" / "model_sub")
-top_model = tf.keras.models.load_model( "model details" / "models" / "model_top")
-bottom_model = tf.keras.models.load_model("model details" / "models" / "model_bottom")
-foot_model = tf.keras.models.load_model( "model details" / "models" / "model_foot")
+
+script_dir = Path(__file__).parent
+base_model_path = script_dir / "model details" / "models"
+
+sub_model_path = base_model_path / "model_sub"
+top_model_path = base_model_path / "model_top"
+bottom_model_path = base_model_path / "model_bottom"
+foot_model_path = base_model_path / "model_foot"
 
 
 sub_list = ["bottom","foot","top"]
