@@ -40,19 +40,15 @@ import PIL.Image as Image
 from pathlib import Path
 
 import numpy as np
+#for color classification
+import colorsys                                                     
+import PIL.Image as Image
 
-# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-# sub_model = Path("model details") / "models" / "model_sub"
-# top_model = Path("model details") / "models" / "model_top"
-# bottom_model = Path("model details") / "models" / "model_bottom"
-# foot_model = Path("model details") / "models" / "model_foot"
-
-# sub_model = tf.keras.models.load_model(str(Path("model details") / "models" / "model_sub"))
-# top_model = tf.keras.models.load_model(str(Path("model details") / "models" / "model_top"))
-# bottom_model = tf.keras.models.load_model(str(Path("model details") / "models" / "model_bottom"))
-# foot_model = tf.keras.models.load_model(str(Path("model details") / "models" / "model_foot"))
-
+from scipy.spatial import KDTree
+from webcolors import (
+   CSS3_HEX_TO_NAMES,
+    hex_to_rgb
+)
 
 script_dir = Path(__file__).parent
 base_model_path = script_dir / "model details" / "models"
