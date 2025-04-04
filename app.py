@@ -60,7 +60,7 @@ base_model_path = script_dir / "model details" / "models"
 sub_model_path = base_model_path / "model_sub"
 top_model_path = base_model_path / "model_top"
 bottom_model_path = base_model_path / "model_bottom"
-foot_model_path = base_model_path / "model_foot"
+foot_model_path = base_model_path / "model_shoes"
 
 sub_model = tf.keras.models.load_model(sub_model_path)
 top_model = tf.keras.models.load_model(top_model_path)
