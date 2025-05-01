@@ -42,7 +42,7 @@ import numpy as np
 
 
 # Get the absolute path to the project root directory
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # Moves up one level from "py"
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # Moves up one level from "py"
 
 # sub_model_path = Path("model details") / "models" / "model_sub"
 # top_model_path = Path("model details") / "models" / "model_top"
@@ -56,10 +56,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # Moves 
 # bottom_model = tf.keras.models.load_model(bottom_model_path)
 # foot_model = tf.keras.models.load_model(foot_model_path)
 
-sub_model = Path("model details") / "models" / "model_sub"
-top_model = Path("model details") / "models" / "model_top"
-bottom_model = Path("model details") / "models" / "model_bottom"
-foot_model = Path("model details") / "models" / "model_foot"
+# sub_model = Path("model details") / "models" / "model_sub"
+# top_model = Path("model details") / "models" / "model_top"
+# bottom_model = Path("model details") / "models" / "model_bottom"
+# foot_model = Path("model details") / "models" / "model_foot"
 
 
 
@@ -69,6 +69,18 @@ foot_model = Path("model details") / "models" / "model_foot"
 # bottom_model = tf.keras.models.load_model(bottom_model_path)
 # foot_model = tf.keras.models.load_model(foot_model_path)
 
+script_dir = Path(__file__).parent
+base_model_path = script_dir / "model details" / "models"
+
+sub_model_path = base_model_path / "model_sub"
+top_model_path = base_model_path / "model_top"
+bottom_model_path = base_model_path / "model_bottom"
+foot_model_path = base_model_path / "model_shoes"
+
+sub_model = tf.keras.models.load_model(sub_model_path)
+top_model = tf.keras.models.load_model(top_model_path)
+bottom_model = tf.keras.models.load_model(bottom_model_path)
+foot_model = tf.keras.models.load_model(foot_model_path)
 
 # all output possibilities of the model for subsequent matching
 sub_list = ["bottom","foot","top"]
