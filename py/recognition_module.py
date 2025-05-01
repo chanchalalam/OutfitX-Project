@@ -33,13 +33,13 @@ from webcolors import (
    
     
 # Get the absolute path to the project root directory
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # Moves up one level from "py"
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # Moves up one level from "py"
 
-# Define model paths
-sub_model = tf.keras.models.load_model('/Users/chanchalalam/Desktop/Outfit_Recommendation_System-master/models/model_sub')
-top_model = tf.keras.models.load_model('/Users/chanchalalam/Desktop/Outfit_Recommendation_System-master/models/model_top')
-bottom_model = tf.keras.models.load_model('/Users/chanchalalam/Desktop/Outfit_Recommendation_System-master/models/model_bottom')
-foot_model = tf.keras.models.load_model('/Users/chanchalalam/Desktop/Outfit_Recommendation_System-master/models/model_shoes')
+# # Define model paths
+# sub_model = tf.keras.models.load_model('/Users/chanchalalam/Desktop/Outfit_Recommendation_System-master/models/model_sub')
+# top_model = tf.keras.models.load_model('/Users/chanchalalam/Desktop/Outfit_Recommendation_System-master/models/model_top')
+# bottom_model = tf.keras.models.load_model('/Users/chanchalalam/Desktop/Outfit_Recommendation_System-master/models/model_bottom')
+# foot_model = tf.keras.models.load_model('/Users/chanchalalam/Desktop/Outfit_Recommendation_System-master/models/model_shoes')
 
 # # Load pre-trained models
 # sub_model = tf.keras.models.load_model(sub_model_path)
@@ -47,7 +47,18 @@ foot_model = tf.keras.models.load_model('/Users/chanchalalam/Desktop/Outfit_Reco
 # bottom_model = tf.keras.models.load_model(bottom_model_path)
 # foot_model = tf.keras.models.load_model(foot_model_path)
 
+script_dir = Path(__file__).parent
+base_model_path = script_dir / "model details" / "models"
 
+sub_model_path = base_model_path / "model_sub"
+top_model_path = base_model_path / "model_top"
+bottom_model_path = base_model_path / "model_bottom"
+foot_model_path = base_model_path / "model_shoes"
+
+sub_model = tf.keras.models.load_model(sub_model_path)
+top_model = tf.keras.models.load_model(top_model_path)
+bottom_model = tf.keras.models.load_model(bottom_model_path)
+foot_model = tf.keras.models.load_model(foot_model_path)
 # all output possibilities of the model for subsequent matching
 sub_list = ["bottom","foot","top"]
 top_list = [['Belts', 'Blazers', 'Dresses', 'Dupatta', 'Jackets', 'Kurtas',
