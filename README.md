@@ -42,7 +42,7 @@ The system analyzes outfit colors, detects fashion categories, and recommends ma
 - Accuracy: ~92% on validation data  
 
 ---
--
+
 ## ⚙️ How to Run Locally
 ```bash
 git clone https://github.com/yourusername/OutfitX.git
