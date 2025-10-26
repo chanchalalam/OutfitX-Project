@@ -1,5 +1,3 @@
-# OutfitX-Project
-
 # 👗 OutfitX – AI-Powered Outfit Recommendation System
 
 ## 🧠 Overview
