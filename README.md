@@ -4,7 +4,7 @@
 **OutfitX** is an intelligent fashion recommendation system that helps users find complementary outfit items based on uploaded images or text inputs.  
 The system analyzes outfit colors, detects fashion categories, and recommends matching items (e.g., if a user uploads a shirt, it suggests pants, shoes, and accessories) using **color theory**, **CNN-based classification**, and **complementary color mapping**.
 
----
+----
 
 ## 🚀 Features
 - 🖼️ Upload outfit images and get matching recommendations  
@@ -14,7 +14,7 @@ The system analyzes outfit colors, detects fashion categories, and recommends ma
 - 🧩 Streamlit interface for interactive experience  
 - ☁️ Deployed on **Hugging Face Spaces**  
 
----
+----
 
 ## 🧰 Tech Stack
 - **Python**, **TensorFlow/Keras**, **OpenCV**, **Scikit-learn**
@@ -23,7 +23,7 @@ The system analyzes outfit colors, detects fashion categories, and recommends ma
 - **Color Theory Module** (custom HSV-based color matching)  
 - **Pandas**, **NumPy**, **Matplotlib** for preprocessing and visualization  
 
----
+----
 
 ## 🧩 Project Architecture
 1. **Image Input** – User uploads an outfit image.  
@@ -32,7 +32,7 @@ The system analyzes outfit colors, detects fashion categories, and recommends ma
 4. **Recommendation Engine** – Suggests best-matched items (pants, shoes, accessories).  
 5. **Frontend Display** – Streamlit displays recommended items with confidence scores.  
 
----
+----
 
 ## 🧪 Model Training
 - Dataset: **Fashion Product Images Dataset (Kaggle, 44K images)**  
@@ -42,7 +42,7 @@ The system analyzes outfit colors, detects fashion categories, and recommends ma
 - Accuracy: ~92% on validation data  
 
 ---
-
+-
 ## ⚙️ How to Run Locally
 ```bash
 git clone https://github.com/yourusername/OutfitX.git
