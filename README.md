@@ -4,6 +4,8 @@
 **OutfitX** is an intelligent fashion recommendation system that helps users find complementary outfit items based on uploaded images or text inputs.  
 The system analyzes outfit colors, detects fashion categories, and recommends matching items (e.g., if a user uploads a shirt, it suggests pants, shoes, and accessories) using **color theory**, **CNN-based classification**, and **complementary color mapping**.
 
+https://drive.google.com/file/d/1ae3NFLCBoanjCDB3GvJiOLKxz0bs9uy0/view
+
 ----
 
 ## 🚀 Features
