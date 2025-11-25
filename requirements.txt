@@ -1,5 +1,5 @@
 ###### Requirements without Version Specifiers ######`
-pip==25.0.1
+pip==25.3
 tensorflow==2.15.1
 opencv-python-headless
 matplotlib
